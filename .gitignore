@@ -1,0 +1,4 @@
+.DS_Store
+node_modules/
+.html-validate-cache/
+html-validate-report.*

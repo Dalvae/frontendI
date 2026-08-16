@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dad Gamers | Tienda de videojuegos</title>
+  </head>
+  <body>
+    <header>
+      <h1>Dad Gamers</h1>
+      <p>Tienda de videojuegos.</p>
+      <!-- navegacion principal -->
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <!-- queria probar popover sin usar javascript -->
+      <button type="button" popovertarget="horario">Ver horario</button>
+      <div id="horario" popover>
+        <p>Atendemos de lunes a sábado, de 10:00 a 19:00 horas.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- catalogo con juegos -->
+      <section id="catalogo" aria-labelledby="titulo-catalogo">
+        <h2 id="titulo-catalogo">Productos destacados</h2>
+        <p>Estos son algunos juegos disponibles.</p>
+
+        <ul>
+          <li>
+            <article>
+              <h3>World of Warcraft</h3>
+              <img src="https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/DUW07TJCORUY1545344057946.jpg" alt="Personajes de World of Warcraft en la incursión Battle of Dazar'alor" width="320" height="180">
+              <p>Un mundo de fantasía online para crear un héroe y vivir aventuras con otras personas.</p>
+              <ul>
+                <li>Plataforma: PC y Mac</li>
+                <li>Género: MMORPG</li>
+              </ul>
+              <p><a href="https://worldofwarcraft.blizzard.com/" rel="noopener noreferrer">Sitio oficial de World of Warcraft</a></p>
+              <!-- nunca habia usado details asi -->
+              <details>
+                <summary>Dato del juego</summary>
+                <p>Se juega en línea y permite formar grupos para completar misiones.</p>
+              </details>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Ragnarok Online</h3>
+              <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/215100/ss_d0865b4c9165a935f00e64daabb43da5d9c7b948.1920x1080.jpg" alt="Grupo de personajes de Ragnarok Online reunido en un campo con barras de vida" width="320" height="180">
+              <p>Un juego de rol online con personajes, profesiones y mapas inspirados en la mitología nórdica.</p>
+              <ul>
+                <li>Plataforma: PC</li>
+                <li>Género: MMORPG</li>
+              </ul>
+              <p><a href="https://www.ragnarokonline.com/" rel="noopener noreferrer">Página de Ragnarok Online</a></p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Terraria</h3>
+              <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/ss_ae168a00ab08104ba266dc30232654d4b3c919e5.1920x1080.jpg" alt="Combate contra el jefe Wall of Flesh en el Inframundo de Terraria" width="320" height="180">
+              <p>Un sandbox de acción y aventura para explorar, construir y combatir.</p>
+              <ul>
+                <li>Plataforma: PC</li>
+                <li>Género: Sandbox de acción y aventura</li>
+              </ul>
+              <p><a href="https://store.steampowered.com/app/105600/Terraria/" rel="noopener noreferrer">Ver Terraria en Steam</a></p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Factorio</h3>
+              <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_171f398a8e347fad650a9c1b6c3b77c612781510.1920x1080.jpg" alt="Fábrica automatizada de Factorio con cintas transportadoras, ensambladoras y trenes" width="320" height="180">
+              <p>Una simulación y estrategia de automatización para construir fábricas.</p>
+              <ul>
+                <li>Plataforma: PC</li>
+                <li>Género: Simulación y estrategia de automatización</li>
+              </ul>
+              <p><a href="https://store.steampowered.com/app/427520/Factorio/" rel="noopener noreferrer">Ver Factorio en Steam</a></p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Kenshi</h3>
+              <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/233860/933aa89a4d370c1bcb96cb7497287e835b7cff7b/ss_933aa89a4d370c1bcb96cb7497287e835b7cff7b.1920x1080.jpg" alt="Personaje y animal compañero recorriendo el desierto de Kenshi" width="320" height="180">
+              <p>Un RPG sandbox de supervivencia donde una persona explora un mundo abierto y forma su propio grupo.</p>
+              <ul>
+                <li>Plataforma: PC</li>
+                <li>Género: RPG sandbox de supervivencia</li>
+                <li>Jugadores: una persona</li>
+              </ul>
+              <p><a href="https://store.steampowered.com/app/233860/Kenshi/" rel="noopener noreferrer">Ver Kenshi en Steam</a></p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Mario Kart World</h3>
+              <img src="https://assets.nintendo.com/image/upload/f_auto,q_auto/Marketing/ms_fy1Mo0t5Zq7q/6-drivers-vehicles/screenshot-01-2x" alt="Koopa Troopa derrapando en una carrera de Mario Kart World con otros pilotos al fondo" width="320" height="180">
+              <p>Juego de carreras de Mario con circuitos y competencias para compartir con amistades.</p>
+              <ul>
+                <li>Plataforma: Nintendo Switch 2</li>
+                <li>Jugadores: hasta 24 personas en línea</li>
+              </ul>
+              <p><a href="https://mariokartworld.nintendo.com/" rel="noopener noreferrer">Sitio oficial de Mario Kart World</a></p>
+            </article>
+          </li>
+        </ul>
+        <p>Imágenes promocionales pertenecen a sus respectivos titulares; usadas solo con fines académicos.</p>
+      </section>
+    </main>
+
+    <!-- datos de contcto -->
+    <footer id="contacto">
+      <h2>Contacto</h2>
+      <p>Escríbenos a <a href="mailto:hola@niveluno.example">hola@niveluno.example</a>.</p>
+      <p>Profesor: la base se realizó con HTML semántico de la unidad y se aprovechó para probar details y popover.</p>
+      <p>Prueba: intenta arrastrar la siguiente ficha.</p>
+      <!-- queria ver si draggable funcionaba sin javascript -->
+      <p draggable="true">Ficha experimental arrastrable: Mario Kart World.</p>
+      <p>Esta es una prueba del atributo HTML <code>draggable</code>; no guarda ni mueve información.</p>
+    </footer>
+  </body>
+</html>
