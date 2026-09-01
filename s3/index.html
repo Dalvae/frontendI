@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Catálogo de videojuegos de Dad Gamers.">
+    <title>Dad Gamers | Juega a tu manera</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Dad Gamers, inicio">
+        <span class="brand-mark" aria-hidden="true">DG</span>
+        <span>dad<br><strong>gamers</strong></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#novedades">Novedades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <details class="mobile-menu">
+        <summary aria-label="Abrir o cerrar navegación principal">Menú <span aria-hidden="true">+</span></summary>
+        <nav aria-label="Navegación principal móvil">
+          <a href="#catalogo">Catálogo</a>
+          <a href="#novedades">Novedades</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </details>
+      <a class="cart-link" href="#catalogo" aria-label="Ver juegos destacados">Explorar <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Catálogo seleccionado · 2026</p>
+          <h1 id="hero-title">Tu próxima<br><em>obsesión</em> empieza aquí.</h1>
+          <p class="hero-description">Mundos inmensos, carreras imposibles y fábricas que no te dejan dormir. Una selección para jugar sin pedir permiso.</p>
+          <a class="button button-primary" href="#catalogo">Ver selección <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-art" aria-label="Control de videojuegos ilustrado">
+          <p class="art-label">PLAY / REPEAT</p>
+          <div class="controller" aria-hidden="true">
+            <span class="dpad"></span><span class="stick stick-left"></span><span class="stick stick-right"></span>
+            <span class="button-dot button-a"></span><span class="button-dot button-b"></span><span class="button-dot button-x"></span><span class="button-dot button-y"></span>
+          </div>
+          <p class="hero-number">06 <span>juegos<br>esenciales</span></p>
+        </div>
+      </section>
+
+      <section id="novedades" class="ticker" aria-label="Información de la tienda">
+        <p>Pixel por pixel</p><span aria-hidden="true">✦</span><p>Aventuras que perduran</p><span aria-hidden="true">✦</span><p>Solo buenas partidas</p><span aria-hidden="true">✦</span>
+      </section>
+
+      <section id="catalogo" class="catalog" aria-labelledby="catalog-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 — Elige tu mundo</p>
+            <h2 id="catalog-title">Juegos que se<br>quedan contigo.</h2>
+          </div>
+          <p class="catalog-intro">Seis experiencias distintas, elegidas para personas que quieren perder la noción del tiempo.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="game-card featured-card">
+            <div class="game-image"><img src="assets/images/world-of-warcraft.webp" alt="Personajes de World of Warcraft durante una batalla"></div>
+            <div class="game-content"><p class="game-index">01 / MMORPG</p><h3>World of Warcraft</h3><p>Forja un héroe, reúne a tu grupo y entra en Azeroth.</p><a href="https://worldofwarcraft.blizzard.com/" rel="noopener noreferrer">Conocer el mundo <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="game-card">
+            <div class="game-image"><img src="assets/images/ragnarok-online.webp" alt="Personajes de Ragnarok Online reunidos en un campo"></div>
+            <div class="game-content"><p class="game-index">02 / MMORPG</p><h3>Ragnarok Online</h3><p>Clases, profesiones y aventuras con espíritu clásico.</p><a href="https://www.ragnarokonline.com/" rel="noopener noreferrer">Descubrir Ragnarok <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="game-card">
+            <div class="game-image"><img src="assets/images/terraria.webp" alt="Combate contra un jefe en el Inframundo de Terraria"></div>
+            <div class="game-content"><p class="game-index">03 / SANDBOX</p><h3>Terraria</h3><p>Excava, construye y sobrevive en un mundo sin límites.</p><a href="https://store.steampowered.com/app/105600/Terraria/" rel="noopener noreferrer">Ir a Steam <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="game-card">
+            <div class="game-image"><img src="assets/images/factorio.webp" alt="Fábrica automatizada con cintas transportadoras en Factorio"></div>
+            <div class="game-content"><p class="game-index">04 / ESTRATEGIA</p><h3>Factorio</h3><p>Haz crecer una fábrica hasta que todo encaje.</p><a href="https://store.steampowered.com/app/427520/" rel="noopener noreferrer">Automatizar <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="game-card">
+            <div class="game-image"><img src="assets/images/kenshi.webp" alt="Personaje recorriendo el desierto junto a un animal en Kenshi"></div>
+            <div class="game-content"><p class="game-index">05 / RPG</p><h3>Kenshi</h3><p>Sobrevive, explora y escribe tu propia historia.</p><a href="https://store.steampowered.com/app/233860/" rel="noopener noreferrer">Sobrevivir <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="game-card accent-card">
+            <div class="game-image"><img src="assets/images/mario-kart-world.webp" alt="Koopa Troopa derrapando durante una carrera de Mario Kart World"></div>
+            <div class="game-content"><p class="game-index">06 / CARRERAS</p><h3>Mario Kart World</h3><p>El circuito es tuyo. Acelera sin mirar atrás.</p><a href="https://mariokartworld.nintendo.com/" rel="noopener noreferrer">Ir a la carrera <span aria-hidden="true">↗</span></a></div>
+          </article>
+        </div>
+        <p class="academic-note">Las imágenes promocionales pertenecen a sus respectivos titulares y se usan únicamente con fines académicos.</p>
+      </section>
+    </main>
+
+    <footer id="contacto" class="site-footer">
+      <div class="footer-brand"><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">DG</span><span>dad<br><strong>gamers</strong></span></a><p>Una tienda para partidas que merecen repetirse.</p></div>
+      <div class="footer-links"><p class="eyebrow">Conversemos</p><a href="mailto:hola@dadgames.example">hola@dadgames.example</a><a href="#catalogo">Ver catálogo</a></div>
+      <p class="copyright">© 2026 Dad Gamers<br>Hecho para jugar.</p>
+    </footer>
+  </body>
+</html>
