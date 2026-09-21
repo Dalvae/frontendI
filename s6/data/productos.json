@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "nombre": "World of Warcraft",
+    "categoria": "pc",
+    "genero": "MMORPG",
+    "precio": 24990,
+    "oferta": false,
+    "imagen": "assets/img/world-of-warcraft.webp",
+    "alt": "Personajes de World of Warcraft durante una batalla",
+    "descripcion": "Un mundo de fantasía online para crear un héroe y vivir aventuras con otras personas."
+  },
+  {
+    "id": 2,
+    "nombre": "Ragnarok Online",
+    "categoria": "pc",
+    "genero": "MMORPG",
+    "precio": 9990,
+    "oferta": true,
+    "imagen": "assets/img/ragnarok-online.webp",
+    "alt": "Personajes de Ragnarok Online reunidos en un campo",
+    "descripcion": "Un juego de rol online con personajes, profesiones y mapas inspirados en la mitología nórdica."
+  },
+  {
+    "id": 3,
+    "nombre": "Terraria",
+    "categoria": "pc",
+    "genero": "Sandbox",
+    "precio": 8490,
+    "oferta": false,
+    "imagen": "assets/img/terraria.webp",
+    "alt": "Combate contra un jefe en el Inframundo de Terraria",
+    "descripcion": "Un sandbox de acción y aventura para explorar, construir y combatir."
+  },
+  {
+    "id": 4,
+    "nombre": "Factorio",
+    "categoria": "pc",
+    "genero": "Estrategia",
+    "precio": 27990,
+    "oferta": false,
+    "imagen": "assets/img/factorio.webp",
+    "alt": "Fábrica automatizada con cintas transportadoras en Factorio",
+    "descripcion": "Una simulación y estrategia de automatización para construir fábricas."
+  },
+  {
+    "id": 5,
+    "nombre": "Kenshi",
+    "categoria": "pc",
+    "genero": "RPG",
+    "precio": 12990,
+    "oferta": true,
+    "imagen": "assets/img/kenshi.webp",
+    "alt": "Personaje recorriendo el desierto junto a un animal en Kenshi",
+    "descripcion": "Un RPG sandbox de supervivencia donde exploras un mundo abierto y formas tu propio grupo."
+  },
+  {
+    "id": 6,
+    "nombre": "Mario Kart World",
+    "categoria": "consola",
+    "genero": "Carreras",
+    "precio": 74990,
+    "oferta": false,
+    "imagen": "assets/img/mario-kart-world.webp",
+    "alt": "Koopa Troopa derrapando durante una carrera de Mario Kart World",
+    "descripcion": "Juego de carreras de Mario con circuitos y competencias para compartir con amistades. Nintendo Switch 2."
+  }
+]

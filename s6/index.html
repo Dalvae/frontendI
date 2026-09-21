@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tienda de videojuegos Dad Gamers. Catálogo, buscador y carrito de compras.">
+    <title>Dad Gamers | Tienda de videojuegos</title>
+    <!-- bootstrap 5.3 por cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <!-- navbar, en celular se colapsa con el boton hamburguesa -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" aria-label="Navegación principal">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="#">🎮 Dad Gamers</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Mostrar menú">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="menu-principal">
+            <!-- categorias simuladas, filtran el catalogo con js -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menu-categorias">
+              <li class="nav-item"><a class="nav-link active" href="#catalogo" data-categoria="todos" aria-current="page">Todos</a></li>
+              <li class="nav-item"><a class="nav-link" href="#catalogo" data-categoria="pc">Juegos PC</a></li>
+              <li class="nav-item"><a class="nav-link" href="#catalogo" data-categoria="consola">Consolas</a></li>
+              <li class="nav-item"><a class="nav-link" href="#catalogo" data-categoria="oferta">Ofertas</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            </ul>
+
+            <!-- buscador (evento submit) -->
+            <form class="d-flex me-lg-3 mb-2 mb-lg-0" role="search" id="form-busqueda">
+              <label for="campo-busqueda" class="visually-hidden">Buscar juego</label>
+              <input class="form-control me-2" type="search" id="campo-busqueda" placeholder="Buscar juego..." aria-label="Buscar juego" autocomplete="off">
+              <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+
+            <!-- boton del carrito con el contador -->
+            <button class="btn btn-warning position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#carrito" aria-controls="carrito">
+              🛒 Carrito
+              <span class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle" id="contador-carrito">0</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4">
+      <!-- portada, reuse el fondo de estrellas de la semana 3 -->
+      <section class="hero rounded-3 p-4 p-md-5 mb-4 text-white">
+        <h1 class="display-6 fw-bold">Tienda de videojuegos</h1>
+        <p class="lead mb-0">Juegos para PC y consola con despacho a todo Chile. Retiro en tienda sin costo.</p>
+      </section>
+
+      <!-- catalogo, las tarjetas se generan con js desde data/productos.json -->
+      <section id="catalogo" aria-labelledby="titulo-catalogo">
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-3 gap-2">
+          <h2 id="titulo-catalogo" class="h3 mb-0">Catálogo</h2>
+          <p class="text-secondary small mb-0" id="estado-catalogo" aria-live="polite">Cargando productos...</p>
+        </div>
+
+        <!-- spinner mientras responde el fetch -->
+        <div class="text-center py-5" id="estado-carga" role="status">
+          <div class="spinner-border text-warning" aria-hidden="true"></div>
+          <p class="mt-2 mb-0">Cargando catálogo...</p>
+        </div>
+
+        <!-- mensaje amigable si falla la carga del json -->
+        <div class="alert alert-danger d-none" id="alerta-error" role="alert">
+          <h3 class="h5 alert-heading">No pudimos cargar el catálogo</h3>
+          <p id="alerta-error-detalle" class="mb-2">Revisa tu conexión e inténtalo de nuevo.</p>
+          <button class="btn btn-outline-danger btn-sm" type="button" id="btn-reintentar">Reintentar</button>
+        </div>
+
+        <!-- cuando la busqueda no encuentra nada -->
+        <div class="alert alert-secondary d-none" id="sin-resultados" role="status">
+          No encontramos juegos con ese nombre. <button class="btn btn-link btn-sm p-0 align-baseline" type="button" id="btn-limpiar-busqueda">Ver todo el catálogo</button>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" id="lista-productos"></div>
+      </section>
+    </main>
+
+    <!-- panel lateral del carrito, aca va el resumen dinamico. primera vez que uso offcanvas -->
+    <aside class="offcanvas offcanvas-end" tabindex="-1" id="carrito" aria-labelledby="titulo-carrito">
+      <div class="offcanvas-header border-bottom">
+        <h2 class="offcanvas-title h5" id="titulo-carrito">Tu carrito</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <p class="text-secondary" id="carrito-vacio">Todavía no agregas productos.</p>
+        <ul class="list-group list-group-flush mb-3" id="lista-carrito"></ul>
+        <div class="mt-auto border-top pt-3">
+          <div class="d-flex justify-content-between mb-3">
+            <span class="fw-bold">Total</span>
+            <span class="fw-bold" id="total-carrito">$0</span>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-warning" type="button" id="btn-pagar" disabled>Ir a pagar</button>
+            <button class="btn btn-outline-secondary" type="button" id="btn-vaciar" disabled>Vaciar carrito</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- avisos cortos al agregar al carrito -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div class="toast text-bg-dark" id="toast-carrito" role="status" aria-live="polite" aria-atomic="true">
+        <div class="toast-body" id="toast-mensaje">Producto agregado.</div>
+      </div>
+    </div>
+
+    <!-- pie de pagina con contacto y redes -->
+    <footer class="bg-dark text-light py-4 mt-5" id="contacto">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <h2 class="h5">Dad Gamers</h2>
+            <p class="mb-0 small">Tienda de videojuegos. Enviamos a todo Chile; el costo depende de la comuna y se confirma por correo.</p>
+          </div>
+          <div class="col-md-4">
+            <h2 class="h5">Contacto</h2>
+            <ul class="list-unstyled small mb-0">
+              <li><a class="link-light" href="mailto:hola@dadgamers.example">hola@dadgamers.example</a></li>
+              <li><a class="link-light" href="tel:+56912345678">+56 9 1234 5678</a></li>
+              <li>Lunes a sábado, 10:00 a 19:00 horas</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h2 class="h5">Redes sociales</h2>
+            <ul class="list-unstyled small mb-0">
+              <li><a class="link-light" href="https://www.instagram.com/" rel="noopener noreferrer">Instagram</a></li>
+              <li><a class="link-light" href="https://x.com/" rel="noopener noreferrer">X (Twitter)</a></li>
+              <li><a class="link-light" href="https://www.youtube.com/" rel="noopener noreferrer">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="small text-secondary mt-4 mb-0">© 2026 Dad Gamers. Sitio de práctica para Desarrollo Frontend I.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

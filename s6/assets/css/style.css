@@ -1,0 +1,49 @@
+/* estilos propios encima de bootstrap, lo grueso lo hace bootstrap */
+
+body {
+  background-color: #f4f5f8;
+}
+
+/* portada oscura con el fondo espacial de la semana 3 */
+.hero {
+  background-color: #05050f;
+  background-image:
+    radial-gradient(1px 1px at 24px 32px, #ffffff, transparent),
+    radial-gradient(1px 1px at 96px 74px, #bfe4ff, transparent),
+    radial-gradient(1px 1px at 158px 18px, #ffffff, transparent),
+    radial-gradient(1px 1px at 62px 138px, #ffe9a8, transparent),
+    radial-gradient(1px 1px at 190px 116px, #d8c4ff, transparent);
+  background-size: 210px 190px;
+}
+
+/* para que todas las imagenes queden del mismo alto */
+.card-img-top {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.precio {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* animacion chica del contador cuando cambia */
+#contador-carrito.pulso {
+  animation: pulso 0.3s ease;
+}
+
+@keyframes pulso {
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
