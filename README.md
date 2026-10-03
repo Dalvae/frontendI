@@ -25,3 +25,9 @@ Tienda Dad Gamers pero ahora con Bootstrap 5 y JavaScript. Los archivos estan en
 
 Para probarlo en local hay que levantarlo con un servidor (yo uso `python3 -m http.server` dentro de `s6/`),
 porque el fetch no funciona abriendo el archivo directo con file://.
+
+## Semana 8
+
+Sitio publicado: https://dalvae.github.io/frontendI/s8/
+
+la tienda pasada a react (vite + bootstrap), esta en `s8/`. ahi en el readme explico lo de useState, useEffect y el renderizado condicional
