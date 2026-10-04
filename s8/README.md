@@ -54,3 +54,4 @@ estan en la carpeta `capturas/`:
 8. error de carga (le cambie la ruta del json para que fallara)
 9. busqueda sin resultados
 10. vista en celular
+11. la pagina ya publicada en github pages
