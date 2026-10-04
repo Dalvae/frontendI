@@ -1,5 +1,12 @@
 import { useState } from 'react'
 
+// antes tenia los 3 botones copiados, asi queda un solo boton que se repite
+const CATEGORIAS = [
+  { id: 'todas', nombre: 'Todos', icono: 'bi-grid' },
+  { id: 'pc', nombre: 'PC', icono: 'bi-pc-display' },
+  { id: 'consola', nombre: 'Consola', icono: 'bi-joystick' },
+]
+
 function Navbar({ categoria, setCategoria, setBusqueda, totalProductos, mostrarCarrito, setMostrarCarrito }) {
   // lo que se escribe en el buscador, se manda recien cuando aprietan buscar
   const [texto, setTexto] = useState('')
@@ -17,30 +24,17 @@ function Navbar({ categoria, setCategoria, setBusqueda, totalProductos, mostrarC
         </span>
 
         <ul className="navbar-nav flex-row gap-2 me-lg-auto">
-          <li className="nav-item">
-            <button
-              className={'nav-link btn btn-link ' + (categoria === 'todas' ? 'active fw-bold' : '')}
-              onClick={() => setCategoria('todas')}
-            >
-              <i className="bi bi-grid me-1"></i>Todos
-            </button>
-          </li>
-          <li className="nav-item">
-            <button
-              className={'nav-link btn btn-link ' + (categoria === 'pc' ? 'active fw-bold' : '')}
-              onClick={() => setCategoria('pc')}
-            >
-              <i className="bi bi-pc-display me-1"></i>PC
-            </button>
-          </li>
-          <li className="nav-item">
-            <button
-              className={'nav-link btn btn-link ' + (categoria === 'consola' ? 'active fw-bold' : '')}
-              onClick={() => setCategoria('consola')}
-            >
-              <i className="bi bi-joystick me-1"></i>Consola
-            </button>
-          </li>
+          {CATEGORIAS.map((c) => (
+            <li className="nav-item" key={c.id}>
+              <button
+                className={'nav-link btn btn-link ' + (categoria === c.id ? 'active fw-bold' : '')}
+                onClick={() => setCategoria(c.id)}
+              >
+                <i className={'bi ' + c.icono + ' me-1'}></i>
+                {c.nombre}
+              </button>
+            </li>
+          ))}
         </ul>
 
         <form className="d-flex gap-2 my-2 my-lg-0" onSubmit={buscar}>
