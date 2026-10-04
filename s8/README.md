@@ -31,7 +31,7 @@ para subirlo a github pages: `npm run deploy` (hace el build y lo sube a la carp
 - el boton de cada juego cambia de "Agregar al carrito" a "En el carrito ✓"
 
 **useEffect**
-- uno carga los productos del json con fetch cuando se abre la pagina. le puse un timeout de 800ms para que se vea el spinner
+- uno carga los productos del json con fetch cuando se abre la pagina. como el json es local carga altiro, asi que antes del fetch espera un tiempo al azar entre 0,8 y 2 segundos para simular que es una api de verdad (y se alcanza a ver el spinner). si falla tambien se demora en mostrar el error
 - el otro cambia el titulo de la pestaña con la cantidad de juegos del carrito
 
 **renderizado condicional**

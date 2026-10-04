@@ -16,17 +16,18 @@ function App() {
   const cargarProductos = () => {
     setCargando(true)
     setError(null)
-    fetch(import.meta.env.BASE_URL + 'data/productos.json')
+    // como es un json local carga altiro, asi que espero un rato al azar (entre 0,8 y 2 seg)
+    // antes del fetch para que parezca una api de verdad, asi el error tambien se demora
+    const demora = 800 + Math.random() * 1200
+    new Promise((resolve) => setTimeout(resolve, demora))
+      .then(() => fetch(import.meta.env.BASE_URL + 'data/productos.json'))
       .then((res) => {
         if (!res.ok) throw new Error('error ' + res.status)
         return res.json()
       })
       .then((data) => {
-        // le puse un timeout para que se alcanze a ver el spinner, si no carga altiro
-        setTimeout(() => {
-          setProductos(data)
-          setCargando(false)
-        }, 800)
+        setProductos(data)
+        setCargando(false)
       })
       .catch(() => {
         setError('No pudimos cargar los productos, intenta de nuevo.')
