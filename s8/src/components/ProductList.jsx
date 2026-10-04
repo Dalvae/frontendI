@@ -3,7 +3,7 @@ import ProductCard from './ProductCard'
 function ProductList({ productos, carrito, onAgregar }) {
   // cuando la busqueda no encuentra nada
   if (productos.length === 0) {
-    return <div className="alert alert-info">No encontramos juegos con ese filtro, prueba con otra busqueda.</div>
+    return <div className="alert alert-info"><i className="bi bi-search me-2"></i>No encontramos juegos con ese filtro, prueba con otra busqueda.</div>
   }
 
   return (

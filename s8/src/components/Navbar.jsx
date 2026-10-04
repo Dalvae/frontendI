@@ -12,7 +12,9 @@ function Navbar({ categoria, setCategoria, setBusqueda, totalProductos, mostrarC
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div className="container">
-        <span className="navbar-brand fw-bold">Dad Gamers</span>
+        <span className="navbar-brand fw-bold">
+          <i className="bi bi-controller me-2"></i>Dad Gamers
+        </span>
 
         <ul className="navbar-nav flex-row gap-2 me-lg-auto">
           <li className="nav-item">
@@ -20,7 +22,7 @@ function Navbar({ categoria, setCategoria, setBusqueda, totalProductos, mostrarC
               className={'nav-link btn btn-link ' + (categoria === 'todas' ? 'active fw-bold' : '')}
               onClick={() => setCategoria('todas')}
             >
-              Todos
+              <i className="bi bi-grid me-1"></i>Todos
             </button>
           </li>
           <li className="nav-item">
@@ -28,7 +30,7 @@ function Navbar({ categoria, setCategoria, setBusqueda, totalProductos, mostrarC
               className={'nav-link btn btn-link ' + (categoria === 'pc' ? 'active fw-bold' : '')}
               onClick={() => setCategoria('pc')}
             >
-              PC
+              <i className="bi bi-pc-display me-1"></i>PC
             </button>
           </li>
           <li className="nav-item">
@@ -36,7 +38,7 @@ function Navbar({ categoria, setCategoria, setBusqueda, totalProductos, mostrarC
               className={'nav-link btn btn-link ' + (categoria === 'consola' ? 'active fw-bold' : '')}
               onClick={() => setCategoria('consola')}
             >
-              Consola
+              <i className="bi bi-joystick me-1"></i>Consola
             </button>
           </li>
         </ul>
@@ -49,8 +51,8 @@ function Navbar({ categoria, setCategoria, setBusqueda, totalProductos, mostrarC
             value={texto}
             onChange={(e) => setTexto(e.target.value)}
           />
-          <button className="btn btn-outline-light" type="submit">
-            Buscar
+          <button className="btn btn-outline-light text-nowrap" type="submit">
+            <i className="bi bi-search me-1"></i>Buscar
           </button>
         </form>
 
@@ -59,6 +61,8 @@ function Navbar({ categoria, setCategoria, setBusqueda, totalProductos, mostrarC
           className={'btn ms-lg-3 ' + (mostrarCarrito ? 'btn-warning' : 'btn-outline-warning')}
           onClick={() => setMostrarCarrito(!mostrarCarrito)}
         >
+          {/* el icono tambien cambia, una x para cerrar */}
+          <i className={mostrarCarrito ? 'bi bi-x-lg me-1' : 'bi bi-cart3 me-1'}></i>
           {mostrarCarrito ? 'Ocultar carrito' : 'Ver carrito'}
           {totalProductos > 0 && <span className="badge rounded-pill bg-danger ms-2">{totalProductos}</span>}
         </button>

@@ -10,18 +10,18 @@ function CartItem({ producto, cantidad, cambiarCantidad, eliminar }) {
       </div>
       <div className="btn-group btn-group-sm">
         <button className="btn btn-outline-secondary" onClick={() => cambiarCantidad(producto.id, -1)}>
-          -
+          <i className="bi bi-dash"></i>
         </button>
         <span className="btn btn-light disabled">{cantidad}</span>
         <button className="btn btn-outline-secondary" onClick={() => cambiarCantidad(producto.id, 1)}>
-          +
+          <i className="bi bi-plus"></i>
         </button>
       </div>
       <div className="fw-bold text-end" style={{ minWidth: '5.5rem' }}>
         ${(precio * cantidad).toLocaleString('es-CL')}
       </div>
       <button className="btn btn-sm btn-outline-danger" onClick={() => eliminar(producto.id)}>
-        Eliminar
+        <i className="bi bi-trash3 me-1"></i>Eliminar
       </button>
     </li>
   )

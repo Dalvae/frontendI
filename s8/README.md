@@ -21,6 +21,7 @@ para subirlo a github pages: `npm run deploy` (hace el build y lo sube a la carp
 - `ProductList.jsx` y `ProductCard.jsx` la lista de juegos y cada tarjeta
 - `Cart.jsx` y `CartItem.jsx` el carrito
 - los productos estan en `public/data/productos.json`, les agregue precio de oferta a dos juegos
+- los iconos son de bootstrap-icons (`npm i bootstrap-icons`), se importa el css en `main.jsx` y se usan con `<i className="bi bi-cart3"></i>`
 
 ## lo que pedia la actividad
 

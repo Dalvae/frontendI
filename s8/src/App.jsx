@@ -105,9 +105,9 @@ function App() {
   } else if (error) {
     contenido = (
       <div className="alert alert-danger d-flex justify-content-between align-items-center">
-        <span>{error}</span>
+        <span><i className="bi bi-exclamation-triangle-fill me-2"></i>{error}</span>
         <button className="btn btn-sm btn-danger" onClick={cargarProductos}>
-          Reintentar
+          <i className="bi bi-arrow-clockwise me-1"></i>Reintentar
         </button>
       </div>
     )
@@ -148,7 +148,7 @@ function App() {
       </main>
 
       <footer className="bg-dark text-white-50 text-center py-3">
-        <small>Dad Gamers - actividad sumativa 3, Desarrollo Frontend I</small>
+        <small><i className="bi bi-controller me-1"></i>Dad Gamers - actividad sumativa 3, Desarrollo Frontend I</small>
       </footer>
     </>
   )

@@ -6,9 +6,9 @@ function ProductCard({ producto, enCarrito, onAgregar }) {
         <div className="card-body d-flex flex-column">
           <h2 className="h5 card-title">
             {producto.nombre}
-            {producto.precioOferta && <span className="badge bg-danger ms-2">Oferta</span>}
+            {producto.precioOferta && <span className="badge bg-danger ms-2"><i className="bi bi-fire me-1"></i>Oferta</span>}
           </h2>
-          <p className="text-secondary small mb-2">{producto.genero}</p>
+          <p className="text-secondary small mb-2"><i className="bi bi-tag me-1"></i>{producto.genero}</p>
           <p className="card-text flex-grow-1">{producto.descripcion}</p>
 
           {/* si tiene oferta muestro el precio normal tachado */}
@@ -22,7 +22,11 @@ function ProductCard({ producto, enCarrito, onAgregar }) {
           )}
 
           <button className={enCarrito ? 'btn btn-success' : 'btn btn-primary'} onClick={() => onAgregar(producto.id)}>
-            {enCarrito ? 'En el carrito ✓' : 'Agregar al carrito'}
+            {enCarrito ? (
+              <><i className="bi bi-check-circle-fill me-1"></i>En el carrito</>
+            ) : (
+              <><i className="bi bi-cart-plus me-1"></i>Agregar al carrito</>
+            )}
           </button>
         </div>
       </div>
