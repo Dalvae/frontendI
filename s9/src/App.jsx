@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import ProductList from './components/ProductList'
 import Cart from './components/Cart'
+import FiltroCategorias from './components/FiltroCategorias'
+import Footer from './components/Footer'
 
 function App() {
   const [productos, setProductos] = useState([])
@@ -118,39 +120,44 @@ function App() {
 
   return (
     <>
-      <Navbar
-        categoria={categoria}
-        setCategoria={setCategoria}
-        setBusqueda={setBusqueda}
-        totalProductos={totalProductos}
-        mostrarCarrito={mostrarCarrito}
-        setMostrarCarrito={setMostrarCarrito}
-      />
-
-      <header className="hero text-white text-center py-5">
-        <div className="container">
-          <h1 className="display-5 fw-bold">Dad Gamers</h1>
-          <p className="lead mb-0">Videojuegos para papas que todavia le dan al control</p>
-        </div>
+      <header>
+        <Navbar
+          setBusqueda={setBusqueda}
+          totalProductos={totalProductos}
+          mostrarCarrito={mostrarCarrito}
+          setMostrarCarrito={setMostrarCarrito}
+        />
       </header>
 
-      <main className="container py-4">
-        {mostrarCarrito && (
-          <Cart
-            items={items}
-            totalProductos={totalProductos}
-            totalPagar={totalPagar}
-            cambiarCantidad={cambiarCantidad}
-            eliminar={eliminar}
-            vaciar={() => setCarrito([])}
-          />
-        )}
-        {contenido}
+      <main>
+        <section id="inicio" className="hero text-white text-center py-5">
+          <div className="container">
+            <h1 className="display-5 fw-bold">Dad Gamers</h1>
+            <p className="lead mb-0">Videojuegos para papas que todavia le dan al control</p>
+          </div>
+        </section>
+
+        <div className="container py-4">
+          {mostrarCarrito && (
+            <Cart
+              items={items}
+              totalProductos={totalProductos}
+              totalPagar={totalPagar}
+              cambiarCantidad={cambiarCantidad}
+              eliminar={eliminar}
+              vaciar={() => setCarrito([])}
+            />
+          )}
+
+          <section id="catalogo" className="mb-5">
+            <h2 className="mb-3"><i className="bi bi-grid me-2"></i>Catalogo</h2>
+            <FiltroCategorias categoria={categoria} setCategoria={setCategoria} productos={productos} />
+            {contenido}
+          </section>
+        </div>
       </main>
 
-      <footer className="bg-dark text-white-50 text-center py-3">
-        <small><i className="bi bi-controller me-1"></i>Dad Gamers - actividad sumativa 3, Desarrollo Frontend I</small>
-      </footer>
+      <Footer />
     </>
   )
 }

@@ -42,3 +42,31 @@ body {
   height: 56px;
   object-fit: cover;
 }
+
+/* como la navbar es sticky tapaba el titulo al hacer click en los links */
+section {
+  scroll-margin-top: 70px;
+}
+
+/* footer con flexbox, en celular queda uno abajo del otro */
+.footer-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-contenido nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-contenido a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+.footer-contenido a:hover {
+  color: #fff;
+}
