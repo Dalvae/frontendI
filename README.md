@@ -31,3 +31,9 @@ porque el fetch no funciona abriendo el archivo directo con file://.
 Sitio publicado: https://dalvae.github.io/frontendI/s8/
 
 la tienda pasada a react (vite + bootstrap), esta en `s8/`. ahi en el readme explico lo de useState, useEffect y el renderizado condicional
+
+## Evaluacion Final Transversal (semana 9)
+
+Sitio publicado: https://dalvae.github.io/frontendI/s9/
+
+la tienda de la semana 8 con formulario de contacto, agregar y quitar juegos, filtro de categorias y navbar para celular. esta en `s9/`, en su readme estan las instrucciones de instalacion y uso
