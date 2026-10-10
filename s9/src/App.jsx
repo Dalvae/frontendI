@@ -4,6 +4,7 @@ import ProductList from './components/ProductList'
 import Cart from './components/Cart'
 import FiltroCategorias from './components/FiltroCategorias'
 import Footer from './components/Footer'
+import ContactForm from './components/ContactForm'
 
 function App() {
   const [productos, setProductos] = useState([])
@@ -153,6 +154,11 @@ function App() {
             <h2 className="mb-3"><i className="bi bi-grid me-2"></i>Catalogo</h2>
             <FiltroCategorias categoria={categoria} setCategoria={setCategoria} productos={productos} />
             {contenido}
+          </section>
+
+          <section id="contacto" className="mb-4">
+            <h2 className="mb-3"><i className="bi bi-envelope me-2"></i>Contacto</h2>
+            <ContactForm />
           </section>
         </div>
       </main>
