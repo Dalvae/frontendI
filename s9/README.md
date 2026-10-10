@@ -90,7 +90,24 @@ s9/
 **React**
 - la app esta dividida en componentes (navbar, filtro, lista, tarjeta, carrito, agregar juego, contacto, footer)
 - `useState` en App para los productos, el carrito, la categoria, la busqueda, la carga y el error. Agregar y quitar juegos cambia el estado `productos` y la lista se actualiza sola
-- props para pasar los datos y las funciones: por ejemplo `FiltroCategorias` recibe `setCategoria`, cuando se aprieta un boton cambia el estado en App y `ProductList` recibe la lista ya filtrada
+- props de componentes padres a hijos. `App` es el padre que tiene los estados y se los pasa a sus hijos:
+
+  ```
+  App (estados: productos, carrito, categoria, busqueda, cargando...)
+  ├── Navbar            recibe totalProductos, mostrarCarrito, setMostrarCarrito, setBusqueda
+  ├── FiltroCategorias  recibe categoria, setCategoria, productos
+  ├── ProductList       recibe productosFiltrados, carrito, onAgregar, onEliminarJuego
+  │   └── ProductCard   recibe producto, enCarrito, onAgregar, onEliminarJuego
+  ├── Cart              recibe items, totalPagar, cambiarCantidad, eliminar, vaciar
+  │   └── CartItem      recibe producto, cantidad, cambiarCantidad, eliminar
+  ├── AgregarJuego      recibe onAgregarJuego
+  ├── ContactForm
+  └── Footer
+  ```
+
+  los datos bajan del padre a los hijos, y los hijos avisan al padre llamando a las funciones que recibieron por props.
+  por ejemplo: en `FiltroCategorias` aprietas Consola y llama a `setCategoria`, cambia el estado en `App`, `App` calcula la lista filtrada
+  y se la pasa a `ProductList`, que a su vez le pasa cada juego a `ProductCard`. Asi lo que pasa en un componente cambia otro
 - `useEffect` para pedir los juegos a la api simulada al abrir la pagina y para el titulo de la pestaña
 - renderizado condicional: spinner mientras carga, error con boton reintentar, carrito vacio, ofertas, mensajes del formulario
 
