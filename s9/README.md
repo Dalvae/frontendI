@@ -39,6 +39,3 @@ y abrir http://localhost:5173/frontendI/s9/ . Para publicarlo en github pages: `
 - props de padres a hijos: `App` tiene los estados y se los pasa a sus hijos (`ProductList` recibe la lista filtrada y le pasa cada juego a `ProductCard`).
   Los hijos avisan al padre con funciones que reciben por props (`setCategoria`, `onAgregar`, `onEliminarJuego`, `onAgregarJuego`)
 - `useEffect` para cargar los juegos al abrir la pagina
-
-**Pruebas**
-- probado en Chrome en escritorio, tablet y celular: filtro, carrito, agregar y quitar juegos y el formulario de contacto. Las capturas estan en `capturas/`
