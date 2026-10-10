@@ -80,7 +80,9 @@ s9/
 **JavaScript (todo hecho dentro de React, no hay javascript puro aparte)**
 - los juegos son un arreglo de objetos en `src/data/juegos.js` con nombre, categoria, genero, precio, descripcion e imagen
 - `obtenerJuegos()` simula una api: devuelve una promesa que se resuelve despues de una demora al azar, por eso se ve el spinner
-- las tarjetas se generan recorriendo la lista con `map` y React las dibuja en el DOM, no estan escritas a mano en el html
+- la manipulacion del DOM la hace React: no uso `document.createElement` ni `innerHTML`, cambio el estado y React actualiza solo lo que cambio en la pagina
+- las tarjetas se generan recorriendo la lista con `map`, no estan escritas a mano en el html. Al filtrar, agregar o quitar un juego cambia el estado y React vuelve a dibujar la lista
+- lo mismo con los mensajes de error del formulario, el spinner, el carrito y el menu del celular: aparecen o desaparecen segun el estado (renderizado condicional)
 - el filtro por categoria usa `filter` sobre la lista
 - validacion del formulario de contacto antes de enviarlo, con mensajes de error
 - `document.title` cambia con la cantidad de juegos del carrito
