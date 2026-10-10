@@ -1,6 +1,6 @@
 import ProductCard from './ProductCard'
 
-function ProductList({ productos, carrito, onAgregar }) {
+function ProductList({ productos, carrito, onAgregar, onEliminarJuego }) {
   // cuando la busqueda no encuentra nada
   if (productos.length === 0) {
     return <div className="alert alert-info"><i className="bi bi-search me-2"></i>No encontramos juegos con ese filtro, prueba con otra busqueda.</div>
@@ -14,6 +14,7 @@ function ProductList({ productos, carrito, onAgregar }) {
           producto={p}
           enCarrito={carrito.some((item) => item.id === p.id)}
           onAgregar={onAgregar}
+          onEliminarJuego={onEliminarJuego}
         />
       ))}
     </div>

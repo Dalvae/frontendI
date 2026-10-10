@@ -5,6 +5,7 @@ import Cart from './components/Cart'
 import FiltroCategorias from './components/FiltroCategorias'
 import Footer from './components/Footer'
 import ContactForm from './components/ContactForm'
+import AgregarJuego from './components/AgregarJuego'
 
 function App() {
   const [productos, setProductos] = useState([])
@@ -79,6 +80,21 @@ function App() {
     setCarrito(carrito.filter((item) => item.id !== id))
   }
 
+  // agrega un juego nuevo a la lista, el id es el mayor que hay + 1
+  const agregarJuego = (juego) => {
+    let mayor = 0
+    productos.forEach((p) => {
+      if (p.id > mayor) mayor = p.id
+    })
+    setProductos([...productos, { ...juego, id: mayor + 1 }])
+  }
+
+  // saca el juego del catalogo y tambien del carrito si estaba
+  const eliminarJuego = (id) => {
+    setProductos(productos.filter((p) => p.id !== id))
+    setCarrito(carrito.filter((item) => item.id !== id))
+  }
+
   // filtro por categoria y por lo que se busco
   const productosFiltrados = productos.filter((p) => {
     const okCategoria = categoria === 'todas' || p.categoria === categoria
@@ -116,7 +132,9 @@ function App() {
       </div>
     )
   } else {
-    contenido = <ProductList productos={productosFiltrados} carrito={carrito} onAgregar={agregar} />
+    contenido = (
+      <ProductList productos={productosFiltrados} carrito={carrito} onAgregar={agregar} onEliminarJuego={eliminarJuego} />
+    )
   }
 
   return (
@@ -154,6 +172,12 @@ function App() {
             <h2 className="mb-3"><i className="bi bi-grid me-2"></i>Catalogo</h2>
             <FiltroCategorias categoria={categoria} setCategoria={setCategoria} productos={productos} />
             {contenido}
+          </section>
+
+          <section id="agregar" className="mb-5">
+            <h2 className="mb-3"><i className="bi bi-plus-square me-2"></i>Agregar juego</h2>
+            <p className="text-secondary">Los juegos que agregues aparecen al final del catalogo (no se guardan si recargas la pagina).</p>
+            <AgregarJuego onAgregarJuego={agregarJuego} />
           </section>
 
           <section id="contacto" className="mb-4">

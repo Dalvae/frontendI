@@ -1,8 +1,11 @@
-function ProductCard({ producto, enCarrito, onAgregar }) {
+function ProductCard({ producto, enCarrito, onAgregar, onEliminarJuego }) {
+  // las imagenes de los juegos agregados vienen con link completo, las del json no
+  const imagen = producto.imagen.startsWith('http') ? producto.imagen : import.meta.env.BASE_URL + producto.imagen
+
   return (
     <div className="col">
       <div className="card h-100 shadow-sm">
-        <img className="card-img-top" src={import.meta.env.BASE_URL + producto.imagen} alt={producto.alt} />
+        <img className="card-img-top" src={imagen} alt={producto.alt} />
         <div className="card-body d-flex flex-column">
           <h2 className="h5 card-title">
             {producto.nombre}
@@ -27,6 +30,9 @@ function ProductCard({ producto, enCarrito, onAgregar }) {
             ) : (
               <><i className="bi bi-cart-plus me-1"></i>Agregar al carrito</>
             )}
+          </button>
+          <button className="btn btn-sm btn-outline-danger mt-2" onClick={() => onEliminarJuego(producto.id)}>
+            <i className="bi bi-trash3 me-1"></i>Quitar del catalogo
           </button>
         </div>
       </div>

@@ -1,9 +1,10 @@
 function CartItem({ producto, cantidad, cambiarCantidad, eliminar }) {
   const precio = producto.precioOferta ? producto.precioOferta : producto.precio
+  const imagen = producto.imagen.startsWith('http') ? producto.imagen : import.meta.env.BASE_URL + producto.imagen
 
   return (
     <li className="list-group-item d-flex align-items-center gap-3">
-      <img className="carrito-img rounded" src={import.meta.env.BASE_URL + producto.imagen} alt={producto.alt} />
+      <img className="carrito-img rounded" src={imagen} alt={producto.alt} />
       <div className="flex-grow-1">
         <div className="fw-semibold">{producto.nombre}</div>
         <div className="small text-secondary">${precio.toLocaleString('es-CL')} c/u</div>
