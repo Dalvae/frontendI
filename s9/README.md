@@ -1,7 +1,7 @@
 # Dad Gamers - Evaluacion Final Transversal (Frontend I)
 
 Tienda online de videojuegos hecha con HTML5, CSS3, JavaScript, Bootstrap 5 y React (con Vite). Es la misma tienda Dad Gamers
-que vengo haciendo desde la semana 3 (html y css), la 6 (bootstrap y js con fetch) y la 8 (react). Para la EFT le agregue
+que vengo haciendo desde la semana 3 (html y css), la 6 (bootstrap y js con fetch) y la 8 (react). Para la EFT le agregue 8 juegos mas (ahora son 14),
 el formulario de contacto con validacion, agregar y quitar juegos del catalogo, el filtro de categorias arriba del catalogo,
 la navbar con links a las secciones y menu para celular, y el footer.
 
@@ -28,7 +28,7 @@ Otros comandos:
 - `npm run lint` revisa el codigo con oxlint
 - `npm run deploy` hace el build y lo sube a la carpeta s9 de la rama gh-pages (asi no se borran las otras semanas)
 
-Ojo: los productos se cargan con `fetch`, por eso hay que abrirlo con `npm run dev` y no haciendo doble click en el index.html.
+Ojo: es una app de React con Vite, asi que hay que abrirla con `npm run dev` y no haciendo doble click en el index.html.
 
 ## Como se usa
 
@@ -39,7 +39,7 @@ Ojo: los productos se cargan con `fetch`, por eso hay que abrirlo con `npm run d
 3. **Carrito**: "Agregar al carrito" en cada juego, y "Ver carrito" en la navbar para ver el total, cambiar cantidades o eliminar.
 4. **Agregar juego**: se llena el formulario (nombre, categoria, genero, precio, descripcion y link de imagen opcional) y el juego
    aparece al final del catalogo. Si falta algo o el precio no es valido muestra un error. Con "Quitar del catalogo" se borra un juego
-   (si estaba en el carrito tambien sale de ahi). Esto no se guarda, si recargas vuelve a lo que esta en el json.
+   (si estaba en el carrito tambien sale de ahi). Esto no se guarda, si recargas vuelve a lo que esta en `juegos.js`.
 5. **Contacto**: formulario con nombre, email y mensaje. Antes de enviar revisa que el nombre tenga al menos 3 letras, que el email
    tenga formato valido y que el mensaje tenga al menos 10 caracteres. Los campos con error se marcan en rojo con el mensaje abajo.
    Como no hay backend, cuando esta todo bien solo muestra el mensaje de enviado y limpia el formulario.
@@ -50,9 +50,9 @@ Ojo: los productos se cargan con `fetch`, por eso hay que abrirlo con `npm run d
 s9/
 ├── index.html              la pagina base, aca react monta todo en <div id="root">
 ├── public/
-│   ├── data/productos.json los juegos (nombre, categoria, genero, precio, descripcion, imagen)
 │   └── img/                imagenes de los juegos y sin-imagen.svg para los que se agregan sin foto
 ├── src/
+│   ├── data/juegos.js      los 14 juegos (arreglo de objetos) y obtenerJuegos() que simula la api
 │   ├── main.jsx            importa bootstrap, los iconos y monta App
 │   ├── App.jsx             los estados principales y las funciones (carrito, agregar y quitar juegos, filtro)
 │   ├── index.css           estilos propios encima de bootstrap
@@ -71,14 +71,16 @@ s9/
 ## Lo que pedia la EFT
 
 **HTML, CSS y Bootstrap 5**
-- etiquetas semanticas: `header` (con la `nav`), `main`, `section` para inicio, catalogo, agregar y contacto, y `footer`
+- etiquetas semanticas dentro de los componentes: `header` (con la `nav`), `main`, `section` para inicio, catalogo, agregar y contacto,
+  la lista de juegos es un `ul` con un `li` y un `article` por tarjeta, el carrito y la info de contacto son `aside`, el correo va en `address` y el `footer` tiene su `nav`
 - bootstrap para la navbar, las tarjetas (`card`), los formularios (`form-control`, `is-invalid`, `invalid-feedback`), alertas, badges y la grilla responsiva (`row-cols-1 row-cols-md-2 row-cols-lg-3`)
 - flexbox propio en `index.css` para la seccion de contacto (en celular uno abajo del otro y en pantalla grande lado a lado) y para el footer, y las clases `d-flex` de bootstrap en los filtros y botones
 - iconos de bootstrap-icons
 
-**JavaScript**
-- los juegos son objetos con nombre, categoria, precio, descripcion e imagen, guardados en `productos.json` y se traen con `fetch`
-- las tarjetas se generan recorriendo la lista con `map` (React las mete al DOM), no estan escritas a mano en el html
+**JavaScript (todo hecho dentro de React, no hay javascript puro aparte)**
+- los juegos son un arreglo de objetos en `src/data/juegos.js` con nombre, categoria, genero, precio, descripcion e imagen
+- `obtenerJuegos()` simula una api: devuelve una promesa que se resuelve despues de una demora al azar, por eso se ve el spinner
+- las tarjetas se generan recorriendo la lista con `map` y React las dibuja en el DOM, no estan escritas a mano en el html
 - el filtro por categoria usa `filter` sobre la lista
 - validacion del formulario de contacto antes de enviarlo, con mensajes de error
 - `document.title` cambia con la cantidad de juegos del carrito
@@ -87,7 +89,7 @@ s9/
 - la app esta dividida en componentes (navbar, filtro, lista, tarjeta, carrito, agregar juego, contacto, footer)
 - `useState` en App para los productos, el carrito, la categoria, la busqueda, la carga y el error. Agregar y quitar juegos cambia el estado `productos` y la lista se actualiza sola
 - props para pasar los datos y las funciones: por ejemplo `FiltroCategorias` recibe `setCategoria`, cuando se aprieta un boton cambia el estado en App y `ProductList` recibe la lista ya filtrada
-- `useEffect` para cargar el json al abrir la pagina y para el titulo de la pestaña
+- `useEffect` para pedir los juegos a la api simulada al abrir la pagina y para el titulo de la pestaña
 - renderizado condicional: spinner mientras carga, error con boton reintentar, carrito vacio, ofertas, mensajes del formulario
 
 **Pruebas**
