@@ -51,8 +51,8 @@ function ContactForm() {
   const clase = (campo) => (errores[campo] ? 'form-control is-invalid' : 'form-control')
 
   return (
-    <div className="contacto-grid">
-      <div className="card bg-dark text-white">
+    <div className="contacto-flex">
+      <div className="card bg-dark text-white contacto-info">
         <div className="card-body">
           <h3 className="h5"><i className="bi bi-chat-dots me-2"></i>Hablemos</h3>
           <p className="mb-2">Si buscas un juego que no esta en el catalogo o tienes dudas con tu compra, escribenos.</p>
@@ -61,7 +61,7 @@ function ContactForm() {
         </div>
       </div>
 
-      <form className="card card-body shadow-sm" onSubmit={enviar} noValidate>
+      <form className="card card-body shadow-sm contacto-form" onSubmit={enviar} noValidate>
         {enviado && (
           <div className="alert alert-success">
             <i className="bi bi-check-circle-fill me-2"></i>Gracias, tu mensaje fue enviado. Te respondemos pronto.

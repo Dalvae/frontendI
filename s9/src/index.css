@@ -71,15 +71,24 @@ section {
   color: #fff;
 }
 
-/* seccion de contacto con css grid: en celular una columna, en pantallas grandes la info a la izquierda */
-.contacto-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+/* seccion de contacto con flexbox: en celular uno abajo del otro, en pantallas grandes la info a la izquierda */
+.contacto-flex {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .contacto-grid {
-    grid-template-columns: 1fr 2fr;
+  .contacto-flex {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .contacto-info {
+    flex: 1;
+  }
+
+  .contacto-form {
+    flex: 2;
   }
 }
