@@ -52,14 +52,16 @@ function ContactForm() {
 
   return (
     <div className="contacto-flex">
-      <div className="card bg-dark text-white contacto-info">
+      <aside className="card bg-dark text-white contacto-info">
         <div className="card-body">
           <h3 className="h5"><i className="bi bi-chat-dots me-2"></i>Hablemos</h3>
           <p className="mb-2">Si buscas un juego que no esta en el catalogo o tienes dudas con tu compra, escribenos.</p>
-          <p className="mb-1"><i className="bi bi-envelope me-2"></i>contacto@dadgamers.cl</p>
-          <p className="mb-0"><i className="bi bi-clock me-2"></i>Lunes a viernes, 9 a 18 hrs</p>
+          <address className="mb-0">
+            <p className="mb-1"><i className="bi bi-envelope me-2"></i>contacto@dadgamers.cl</p>
+            <p className="mb-0"><i className="bi bi-clock me-2"></i>Lunes a viernes, 9 a 18 hrs</p>
+          </address>
         </div>
-      </div>
+      </aside>
 
       <form className="card card-body shadow-sm contacto-form" onSubmit={enviar} noValidate>
         {enviado && (

@@ -1,16 +1,16 @@
 function ProductCard({ producto, enCarrito, onAgregar, onEliminarJuego }) {
-  // las imagenes de los juegos agregados vienen con link completo, las del json no
+  // las imagenes de los juegos agregados vienen con link completo, las de juegos.js no
   const imagen = producto.imagen.startsWith('http') ? producto.imagen : import.meta.env.BASE_URL + producto.imagen
 
   return (
-    <div className="col">
-      <div className="card h-100 shadow-sm">
+    <li className="col">
+      <article className="card h-100 shadow-sm">
         <img className="card-img-top" src={imagen} alt={producto.alt} />
         <div className="card-body d-flex flex-column">
-          <h2 className="h5 card-title">
+          <h3 className="h5 card-title">
             {producto.nombre}
             {producto.precioOferta && <span className="badge bg-danger ms-2"><i className="bi bi-fire me-1"></i>Oferta</span>}
-          </h2>
+          </h3>
           <p className="text-secondary small mb-2"><i className="bi bi-tag me-1"></i>{producto.genero}</p>
           <p className="card-text flex-grow-1">{producto.descripcion}</p>
 
@@ -35,8 +35,8 @@ function ProductCard({ producto, enCarrito, onAgregar, onEliminarJuego }) {
             <i className="bi bi-trash3 me-1"></i>Quitar del catalogo
           </button>
         </div>
-      </div>
-    </div>
+      </article>
+    </li>
   )
 }
 

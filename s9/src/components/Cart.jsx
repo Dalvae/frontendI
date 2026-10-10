@@ -2,7 +2,7 @@ import CartItem from './CartItem'
 
 function Cart({ items, totalProductos, totalPagar, cambiarCantidad, eliminar, vaciar }) {
   return (
-    <section className="card shadow-sm mb-4">
+    <aside className="card shadow-sm mb-4">
       <div className="card-header d-flex justify-content-between align-items-center">
         <h2 className="h5 mb-0"><i className="bi bi-bag me-2"></i>Tu carrito ({totalProductos})</h2>
         {items.length > 0 && (
@@ -37,7 +37,7 @@ function Cart({ items, totalProductos, totalPagar, cambiarCantidad, eliminar, va
           </div>
         </>
       )}
-    </section>
+    </aside>
   )
 }
 

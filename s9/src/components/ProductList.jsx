@@ -7,7 +7,7 @@ function ProductList({ productos, carrito, onAgregar, onEliminarJuego }) {
   }
 
   return (
-    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 list-unstyled">
       {productos.map((p) => (
         <ProductCard
           key={p.id}
@@ -17,7 +17,7 @@ function ProductList({ productos, carrito, onAgregar, onEliminarJuego }) {
           onEliminarJuego={onEliminarJuego}
         />
       ))}
-    </div>
+    </ul>
   )
 }
 
