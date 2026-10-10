@@ -6,6 +6,7 @@ import FiltroCategorias from './components/FiltroCategorias'
 import Footer from './components/Footer'
 import ContactForm from './components/ContactForm'
 import AgregarJuego from './components/AgregarJuego'
+import { obtenerJuegos } from './data/juegos'
 
 function App() {
   const [productos, setProductos] = useState([])
@@ -16,19 +17,11 @@ function App() {
   const [busqueda, setBusqueda] = useState('')
   const [mostrarCarrito, setMostrarCarrito] = useState(false)
 
-  // trae los productos del json, la deje aparte para poder llamarla de nuevo con el boton reintentar
+  // pide los juegos a la api simulada, la deje aparte para poder llamarla de nuevo con el boton reintentar
   const cargarProductos = () => {
     setCargando(true)
     setError(null)
-    // como es un json local carga altiro, asi que espero un rato al azar (entre 0,8 y 2 seg)
-    // antes del fetch para que parezca una api de verdad, asi el error tambien se demora
-    const demora = 800 + Math.random() * 1200
-    new Promise((resolve) => setTimeout(resolve, demora))
-      .then(() => fetch(import.meta.env.BASE_URL + 'data/productos.json'))
-      .then((res) => {
-        if (!res.ok) throw new Error('error ' + res.status)
-        return res.json()
-      })
+    obtenerJuegos()
       .then((data) => {
         setProductos(data)
         setCargando(false)
